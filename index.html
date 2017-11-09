@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <canvas id='chartcanvas'></canvas>
+    <script src='./chart.min.js'></script>
+    <script src='./jquery-3.2.1.min.js'></script>
+    <script>
+    var ctx = $("#chartcanvas")
+    var chart = new Chart(ctx, {
+      type: "polarArea",
+      data: {
+    datasets: [{
+        data: [10, 20, 30]
+    }],
+
+    // These labels appear in the legend and in the tooltips when hovering different arcs
+    labels: [
+        'Red',
+        'Yellow',
+        'Blue'
+    ],
+      option: {}
+    }})
+    </script>
+  </body>
+</html>
