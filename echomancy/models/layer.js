@@ -2,14 +2,15 @@ var Share = require("./share.js");
 
 function Layer(shares, price) {
   this.shares = [];
+  this.price = price
   this.sharesAvailable = shares;
   for (i = 0; i < shares; i++) {
     this.generateShare(price);
   }
 }
 
-Layer.prototype.generateShare = function(price) {
-  share = new Share();
+Layer.prototype.generateShare = function() {
+  share = new Share(this.price);
   this.shares.push(share);
 };
 

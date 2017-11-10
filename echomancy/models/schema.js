@@ -9,7 +9,7 @@ function Schema(price, incrementRate, multiplier, initialShares) {
 
 Schema.prototype.buy = function() {
   this.layers[this.layers.length - 1].buyShare();
-  if (this.layers[this.layers.length - 1].checkLayerFull) {
+  if (this.layers[this.layers.length - 1].checkLayerFull()) {
     var newNumberOfShares = this.calculateShareNumber()
     this.layers.push(new Layer(newNumberOfShares, this.currentPrice));
     this.currentPrice = this.layers.length * this.incrementRate
@@ -19,6 +19,5 @@ Schema.prototype.buy = function() {
 Schema.prototype.calculateShareNumber = function() {
   return this.layers[this.layers.length - 1].shares.length * this.multiplier
 }
-
 
 module.exports = Schema;
