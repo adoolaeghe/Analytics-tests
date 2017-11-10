@@ -21,4 +21,5 @@ describe('Share', function() {
       expect(share.owned).to.be.true;
     })
   })
+
 });

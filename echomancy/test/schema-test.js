@@ -15,17 +15,24 @@ describe("Schema", function() {
   });
 
   it("buys a share when share is available", function() {
-    var schema = new Schema();
+    var schema = new Schema(1, 1.1);
     schema.buy();
     expect(schema.layers[0].shares[schema.layers[0].shares.length - 1].owned).to
       .be.true;
   });
 
   it("creates a new layer when there is no available share in the current layer", function() {
-    var schema = new Schema();
+    var schema = new Schema(1, 1.1);
     for (i = 0; i < 4; i++) {
       schema.buy();
     }
     expect(schema.layers.length).to.equal(2);
   });
+  it("increment price when creating a new Layer", function() {
+    var schema = new Schema(1, 1.1);
+    for (i = 0; i < 4; i++) {
+      schema.buy();
+    }
+    expect(schema.currentPrice).to.equal(2.2)
+  })
 });
